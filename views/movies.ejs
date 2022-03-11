@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= pageTitle %>
+    </title>
+    <link rel="stylesheet" href="/css/movies.css">
+</head>
+
+<body>
+    <div id="baap">
+        <div id="left">
+            <%- include('sideMenu.ejs',{userID:user}) %>
+        </div>
+        <div id="right">
+            <div id="heading">
+                <div id="header">
+                    <header>Movie <span id="modify"><strong >HUB</strong></span></header>
+                    <p>Share your movie collection with your friends</p>
+
+                </div>
+                <nav class="navUp">
+                    <ul style="list-style-type: none">
+                        <li><a href="/movie/Comedy?page=1">Comedy</a></li>
+                        <li><a href="/movie/Horror?page=1">Horror</a></li>
+                        <li><a href="/movie/Action?page=1">Action</a></li>
+                        <li><a href="/movie/Thriller?page=1">Thriller</a></li>
+                        <li><a href="/movie/SCIFI?page=1">Scifi</a></li>
+                        <li><a href="/movie/Mythology?page=1">Mytholoy</a></li>
+                        <li><a href="/movie/RomCom?page=1">RomCom</a></li>
+                        <li><a href="/movie/Romance?page=1">Romance</a></li>
+                        <li><a href="/movie/Zombie?page=1">Zombie</a></li>
+                        <li><a href="/movie/Life situations?page=1">Life situations</a></li>
+                        <li><a href="/movie/Horror Comedy?page=1">Horror Comedy</a></li>
+                        <li><a href="/movie/Monster?page=1">Monster</a></li>
+                        <li><a href="/movie/Inspirational?page=1">Inspirational</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+            <div id="content">
+                <% if (movies.length > 0 ) { %>
+                    <% for(let movie of movies) { %>
+                        <div class="item">
+                            <a href="/moviePage/<%= movie._id %>" style="text-decoration:none;color:white">
+                                <img src="/<%= movie.filePath %>" alt="<%= movie.title %>">
+                               </a>
+                            <h2 style="text-align:center;font-size:larger;font-weight:500;margin-bottom:0.75%">
+                                <strong style="color:rgb(216, 216, 8)">
+                                    <%= movie.avgRating %>✩
+                                </strong>
+                            </h2>
+                            <h1>
+                                <%= movie.title %>
+                            </h1>
+
+                            <h3>
+                                <%= movie.genre %>
+                            </h3>
+                            <p style="color:white;font-style:italic">
+                                <%= movie.description %>
+                            </p>
+                            <h2>
+                                Suggested:
+                                <%= movie.voted.user %>
+                            </h2>
+                        </div>
+                        <% } %>
+                            <% } else { %>
+                                <div class="item">
+                                    <h1>NO movies were found</h1>
+                                    <h1>Fuck off!!!</h1>
+                                </div>
+                                <% } %>
+            </div>
+            <div id="pagination">
+
+
+                <a href="/movie/all?page=<%= currPage - 1 %>&row=prev">Prev</a>
+
+                <a href="/movie/all?page=<%= pages[0] %>&row=nan">
+                    <%= pages[0] %>
+                </a>
+
+                <a href="/movie/all?page=<%= pages[1] %>&row=nan">
+                    <%= pages[1] %>
+                </a>
+
+                <a href="/movie/all?page=<%= pages[2] %>&row=nan">
+                    <%= pages[2] %>
+                </a>
+
+                <a href="/movie/all?page=<%= pages[3] %>&row=nan">
+                    <%= pages[3] %>
+                </a>
+
+                <a href="/movie/all?page=<%= pages[4] %>&row=nan">
+                    <%= pages[4] %>
+                </a>
+
+                <a href="/movie/all?page=<%= pages[5] %>&row=nan">
+                    <%= pages[5] %>
+                </a>
+
+                <a href="/movie/all?page=<%= pages[6] %>&row=nan">
+                    <%= pages[6] %>
+                </a>
+
+
+
+                <a href="/movie/all?page=<%= pages[7] %>&row=nan">
+                    <%= pages[7] %>
+                </a>
+
+
+
+                <a href="/movie/all?page=<%= pages[8] %>&row=nan">
+                    <%= pages[8] %>
+                </a>
+
+
+
+                <a href="/movie/all?page=<%= pages[9] %>&row=nan">
+                    <%= pages[9] %>
+                </a>
+
+
+
+
+                <a href="/movie/all?page=<%= next %>&row=next">Next</a>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

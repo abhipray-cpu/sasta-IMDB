@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= name %>
+    </title>
+    <link rel="stylesheet" href="/css/starPage.css">
+    <link rel="stylesheet" href="/css/transition.css">
+</head>
+
+<body>
+    <div id="bio">
+        <div id="row1">
+            <div style="width:800px">
+                <div id="column1">
+                    <div id="img">
+                        <img src="/<%= images[0]%>" alt="name of movie star">
+                    </div>
+                    <div id="info">
+                        <h1>
+                            <%= name %>
+                        </h1>
+                        <h2>
+                            <%= age %> years</h2>
+                        <h2>height:
+                            <%= height%>
+                        </h2>
+                        <h4>
+                            <%=description%>
+                        </h4>
+                    </div>
+                </div>
+                <div style="width:800px" id="column2">
+                    <div>
+                        <h2>Movies</h2>
+                    </div>
+                    <div id="movies">
+
+                        <% if(movies.length > 0){ %>
+                            <% movies.forEach(movie=>{ %>
+                                <a href="/moviePage/<%= movie._id %>" style="text-decoration: none;color:white">
+                                    <div class="movie">
+                                        <img src="/<%= movie.filePath %>" alt="name of movie">
+                                        <h4>
+                                            <%= movie.title %>
+                                        </h4>
+                                    </div>
+                                </a>
+                                <% })%>
+                                    <%} else {%>
+                                        <div class="movie">
+                                            <img src="https://i.ytimg.com/vi/If1fB4xSrCA/maxresdefault.jpg" alt="name of movie">
+                                            <h4>Name of movie</h4>
+                                        </div>
+                                        <div class="movie">
+                                            <img src="https://i.ytimg.com/vi/YK9PnRTWLVU/maxresdefault.jpg" alt="name of movie">
+                                            <h4>Name of movie</h4>
+                                        </div>
+                                        <div class="movie">
+                                            <img src="https://i.ytimg.com/vi/kQ8LJi2cWlU/maxresdefault.jpg" alt="name of movie">
+                                            <h4>Name of movie</h4>
+                                        </div>
+                                        <div class="movie">
+                                            <img src="https://i.ytimg.com/vi/5ykflOK9eC0/maxresdefault.jpg" alt="name of movie">
+                                            <h4>Name of movie</h4>
+                                        </div>
+                                        <div class="movie">
+                                            <img src="https://i.ytimg.com/vi/If1fB4xSrCA/maxresdefault.jpg" alt="name of movie">
+                                            <h4>Name of movie</h4>
+                                        </div>
+                                        <div class="movie">
+                                            <img src="https://i.ytimg.com/vi/YK9PnRTWLVU/maxresdefault.jpg" alt="name of movie">
+                                            <h4>Name of movie</h4>
+                                        </div>
+                                        <div class="movie">
+                                            <img src="https://i.ytimg.com/vi/kQ8LJi2cWlU/maxresdefault.jpg" alt="name of movie">
+                                            <h4>Name of movie</h4>
+                                        </div>
+                                        <div class="movie">
+                                            <img src="https://i.ytimg.com/vi/5ykflOK9eC0/maxresdefault.jpg" alt="name of movie">
+                                            <h4>Name of movie</h4>
+                                        </div>
+                                        <div class="movie">
+                                            <img src="https://i.ytimg.com/vi/If1fB4xSrCA/maxresdefault.jpg" alt="name of movie">
+                                            <h4>Name of movie</h4>
+                                        </div>
+                                        <div class="movie">
+                                            <img src="https://i.ytimg.com/vi/YK9PnRTWLVU/maxresdefault.jpg" alt="name of movie">
+                                            <h4>Name of movie</h4>
+                                        </div>
+                                        <div class="movie">
+                                            <img src="https://i.ytimg.com/vi/kQ8LJi2cWlU/maxresdefault.jpg" alt="name of movie">
+                                            <h4>Name of movie</h4>
+                                        </div>
+                                        <div class="movie">
+                                            <img src="https://i.ytimg.com/vi/5ykflOK9eC0/maxresdefault.jpg" alt="name of movie">
+                                            <h4>Name of movie</h4>
+                                        </div>
+                                        <div class="movie">
+                                            <img src="https://i.ytimg.com/vi/If1fB4xSrCA/maxresdefault.jpg" alt="name of movie">
+                                            <h4>Name of movie</h4>
+                                        </div>
+                                        <div class="movie">
+                                            <img src="https://i.ytimg.com/vi/YK9PnRTWLVU/maxresdefault.jpg" alt="name of movie">
+                                            <h4>Name of movie</h4>
+                                        </div>
+                                        <div class="movie">
+                                            <img src="https://i.ytimg.com/vi/kQ8LJi2cWlU/maxresdefault.jpg" alt="name of movie">
+                                            <h4>Name of movie</h4>
+                                        </div>
+                                        <div class="movie">
+                                            <img src="https://i.ytimg.com/vi/5ykflOK9eC0/maxresdefault.jpg" alt="name of movie">
+                                            <h4>Name of movie</h4>
+                                        </div>
+                                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div id="gallery">
+                <div>
+                    <h1>Gallery</h1>
+                </div>
+                <div id="images">
+                    <% images.forEach(image=>{ %>
+                        <div class="galImg">
+                            <img src="/<%= image %>" alt="<%= name %>">
+                        </div>
+                        <% }) %>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="row2">
+
+        </div>
+    </div>
+    <div id="movies"></div>
+</body>
+
+</html>

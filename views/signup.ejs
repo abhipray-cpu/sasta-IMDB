@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= pageTitle %>
+    </title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+    <% if(errorMessage.length > 0) { %>
+        <div id="error">
+            <h1>
+                <%= errorMessage %>
+            </h1>
+        </div>
+        <% } %>
+            <% if(errorPaswd.length > 0) { %>
+                <div id="error">
+                    <h1>
+                        <%= errorPaswd %>
+                    </h1>
+                </div>
+                <% } %>
+                    <div id="heading">
+                        <header>Movie <span id="modify"><strong>HUB</strong></span></header>
+                        <p>Share your movie collection with your friends</p>
+                        <p><strong>You are not a member therfore signup</strong></p>
+
+                    </div>
+
+                    <div id="form">
+                        <div id="collect_data">
+
+
+                            <form action="/signup" method="POST">
+                                <!--the name here is specific for the csrf token and therfore should not be changed-->
+                                <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                                <div class="entry">
+                                    <input type="text" id="name" name="name" value="<%= value.userName %>" placeholder="User name">
+                                </div>
+                                <div class="entry">
+                                    <input type="email" id="email" name="email" value="<%= value.Email %>" placeholder="Email">
+                                </div>
+                                <div class="entry">
+                                    <input type="password" id="password" name="password" value="<%= value.Password %>" placeholder="Password">
+                                </div>
+                                <div class="entry">
+                                    <input type="password" id="confirm" name="confirm" value="<%= value.Confirm %>" placeholder="Confirm Password">
+                                </div>
+                                <div class="btn">
+                                    <button type="submit">Signup</button>
+                                </div>
+
+
+                            </form>
+                        </div>
+                    </div>
+</body>
+
+</html>

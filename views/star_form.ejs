@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= pageTitle %>
+    </title>
+    <link rel="stylesheet" href="/css/movie_form.css">
+</head>
+
+<body>
+
+    <div id="heading">
+        <header>Movie <span id="modify"><strong >HUB</strong></span></header>
+        <p>Share your movie collection with your friends</p>
+
+    </div>
+    <div id="container">
+        <div style="margin-left:60px">
+            <img src="/images/left.png" alt="left Advertisment">
+        </div>
+        <div id="form">
+            <form action="/star_form_check" method="POST" enctype="multipart/form-data">
+                <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                <div id="text">
+                    <label for="name">Star Name</label>
+                    <input type="text" name="name" id="name" placeholder="Enter the name of Star" />
+                </div>
+                <div id="text">
+                    <label for="age">Age</label>
+                    <input type="text" name="age" id="age" placeholder="Enter the age of Star" style="margin-left:92px;" />
+                </div>
+                <div id="text">
+                    <label for="height">Height</label>
+                    <input type="text" name="height" id="height" placeholder="Enter the Height of Star" style="margin-left:62px;" />
+                </div>
+                <div id="fileSelect">
+                    <label for="image" style="margin-right:60px">Profile Images</label>
+                    <input type="file" name="image" id="image" multiple />
+                </div>
+
+
+                <div class="para">
+                    <label for="description">
+                                   Bio
+                                </label>
+                    <br>
+                    <textarea name="description" id="description" cols="60" rows="12">
+                                Enter a bio for the star
+                            </textarea>
+                </div>
+                <div class="para">
+                    <label for="tags">
+                                    Movie Tags
+                                </label>
+                    <br>
+                    <textarea name="tags" id="tags" cols="60" rows="12">
+                                Enter in this format tag1,tag2,tag3,......,tagn
+                                </textarea>
+                </div>
+                <h3 id="lastLabel" style="padding:0;margin-bottom:6px;">
+                    Gender
+                </h3>
+                <div style="margin-left:160px;">
+                    <div class="select-dropdown" style="height:30px">
+                        <select id="gender" name="gender" style="width: auto;height:30px">
+                                            <option value="Male" style="margin-top:1px;margin-bottom:1px;">Male</option>
+                                            <option value="Female" style="margin-top:1px;margin-bottom:1px;">Female</option>
+                                            <option value="Transgender" style="margin-top:1px;margin-bottom:1px;">Transgender</option>
+                                           
+                                </select>
+                    </div>
+                </div>
+
+                <button type="submit">
+                                    Submit
+                                </button>
+            </form>
+        </div>
+        <div>
+            <img src="/images/right.png" alt="left Advertisment">
+        </div>
+    </div>
+
+
+</html>

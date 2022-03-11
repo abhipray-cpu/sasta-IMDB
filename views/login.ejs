@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= pageTitle %>
+    </title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+    <% if(errorMessage.length>0) { %>
+        <div id="error">
+            <h1>
+                <%= errorMessage %>
+            </h1>
+        </div>
+        <% } %>
+            <div id="heading">
+                <header>Movie <span id="modify"><strong >HUB</strong></span></header>
+                <p>Share your movie collection with your friends</p>
+
+            </div>
+
+            <div id="container">
+                <div id="left">
+                    <img src="/images/left.png" alt="left Advertisement">
+                </div>
+                <div id="form">
+                    <div id="collect_data">
+                        <form action="/login" method="POST">
+                            <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                            <!--the name here is specific for the csrf token and therfore should not be changed-->
+                            <div class="entry">
+                                <input type="text" id="name" name="name" placeholder="User name" value="<%= value.user%>">
+                            </div>
+                            <div class="entry">
+                                <input type="password" id="password" name="password" placeholder="Password" value="<%= value.password %>">
+                            </div>
+                            <div class="btn">
+                                <button type="submit">LOGIN</button>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+                <div id="right">
+                    <img src="/images/right.png" alt="right advertisement">
+                </div>
+            </div>
+</body>
+
+</html>

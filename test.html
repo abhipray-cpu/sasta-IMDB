@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="./test.css">
+
+<form action="/movie_form_check" method="POST" enctype="multipart/form-data">
+    <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+    <div id="text">
+        <label for="name">Movie Name</label>
+        <input type="text" name="name" id="name" placeholder="Enter the name of movie" />
+    </div>
+    <div id="fileSelect">
+        <label for="image" style="margin-right:60px">Profile Images</label>
+        <input type="file" name="image" id="image" />
+    </div>
+
+    </div>
+    <div class="para">
+        <label for="description">
+            Movie Plot
+        </label>
+        <br>
+        <textarea name="description" id="description" cols="60" rows="12">
+        Enter the description of the movie
+    </textarea>
+    </div>
+    <div class="para">
+        <label for="tags">
+            Movie Tags
+        </label>
+        <br>
+        <textarea name="tags" id="tags" cols="60" rows="12">
+        Enter in this format tag1,tag2,tag3,......,tagn
+        </textarea>
+    </div>
+    <div class="para">
+        <label for="cast">Movie Cast</label>
+        <br>
+        <textarea name="cast" id="cast" cols="60" rows="12">
+           Enter in this format
+           {
+               "character": "name in database format Abhipray Dumka",
+               "role": "director,actor,producer,writer,etc"",
+               "name": "name of character in movie"
+           };
+           {"character": "name in database format Abhipray Dumka",
+           "role": "director,actor,producer,writer,etc"",
+           "name": "name of character in movie"}
+       </textarea>
+        <h3 id="lastLabel" style="padding:0;margin-bottom:6px;">
+            Select Genre
+        </h3>
+        <div style="margin-left:160px;">
+            <div class="select-dropdown">
+                <select id="genre" name="genre" multiple>
+                    <option value="Comedy" style="margin-top:1px;margin-bottom:1px;">Comedy</option>
+                    <option value="Horror" style="margin-top:1px;margin-bottom:1px;">Horror</option>
+                    <option value="Action" style="margin-top:1px;margin-bottom:1px;">Action</option>
+                    <option value="Thriller" style="margin-top:1px;margin-bottom:1px;">Thriller</option>
+                    <option value="SCIFI" style="margin-top:1px;margin-bottom:1px;">SCIFI</option>
+                    <option value="Mythology" style="margin-top:1px;margin-bottom:1px;">Mythology</option>
+                    <option value="RomCom" style="margin-top:1px;margin-bottom:1px;">RomCom</option>
+                    <option value="Romance" style="margin-top:1px;margin-bottom:1px;">Romance</option>
+                    <option value="Zombie" style="margin-top:1px;margin-bottom:1px;">Zombie</option>
+                    <option value="Life situations" style="margin-top:1px;margin-bottom:1px;">Life situations</option>
+                    <option value="Horror Comedy" style="margin-top:1px;margin-bottom:1px;">Horror Comedy</option>
+                    <option value="Monster" style="margin-top:1px;margin-bottom:1px;">Monster</option>
+                    <option value="Inspirational" style="margin-top:1px;margin-bottom:1px;">Inspirational</option>
+                    <option value="Documentaries" style="margin-top:1px;margin-bottom:1px;">Documentaries</option>
+                    <option value="Crime" style="margin-top:1px;margin-bottom:1px;">Sports</option>
+                    <option value="Drama" style="margin-top:1px;margin-bottom:1px;">Drama</option>
+                    <option value="Superhero" style="margin-top:1px;margin-bottom:1px;">Superhero</option>
+                    <option value="Martial Arts" style="margin-top:1px;margin-bottom:1px;">Martial Arts</option>
+                    <option value="Action comedy" style="margin-top:1px;margin-bottom:1px;">Action comedy</option>
+                    <option value="Dark comedy" style="margin-top:1px;margin-bottom:1px;">Dark comedy</option>
+                    <option value="Super natural" style="margin-top:1px;margin-bottom:1px;">Super natural</option>
+                    <option value="fantasy" style="margin-top:1px;margin-bottom:1px;">fantasy</option>
+                    <option value="Musicals" style="margin-top:1px;margin-bottom:1px;">Musicals</option>
+        </select>
+            </div>
+        </div>
+
+        <button type="submit">
+            Submit
+        </button>
+</form>

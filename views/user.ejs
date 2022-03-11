@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= pageTitle %>
+    </title>
+    <link rel="stylesheet" href="/css/user.css">
+</head>
+
+<body>
+    <div id="baap">
+        <div id="left">
+            <%- include('sideMenu.ejs',{userID:user}) %>
+        </div>
+        <div id="right">
+            <div id="heading">
+                <header>Movie <span id="modify"><strong>HUB</strong></span></header>
+
+                <nav class="navUP">
+                    <a href="/movie_form/<%= user %>/-1?edit=false" style="text-decoration: none;">
+                        <p>Suggest Movie</p>
+                    </a>
+                    <a href="/movie/all?page=1" style="text-decoration: none;">
+                        <p>See suggestions</p>
+                    </a>
+                    <a href="/trending" style="text-decoration: none;">
+                        <p>Trending</p>
+                    </a>
+
+                    <a href="/star_form" style="text-decoration: none;">
+                        <p>Add Star</p>
+                    </a>
+                </nav>
+
+
+            </div>
+            <div id="content">
+
+                <% if (movies.length > 0 ) { %>
+                    <% for(let movie of movies) { %>
+                        <div class="item">
+                            <!---need to add this / to specify the folder specific path
+                        files wi;-->
+                            <a href="/moviePage/<%= movie._id %>" style="text-decoration:none;color:white">
+                            <img src="/<%= movie.filePath %>" alt="<%= movie.title %>">
+                           </a>
+                            <span>
+                                <h2 style="text-align:center;font-size:larger;font-weight:500;margin-bottom:0.75%">
+                                    <strong style="color:rgb(216, 216, 8)">
+                                        <%= movie.avgRating %>✩
+                                    </strong>
+                                </h2>
+                        <h1>
+                            <%= movie.title %>
+                           
+                            (<%= movie.genre %>)
+                        </h1>
+                       </span>
+                            <div class='desc'>
+                                <p style="color:white">
+                                    <%= movie.description %>
+                                </p>
+                            </div>
+                            <h2>
+                                Suggested:
+                                <%= name %>
+                            </h2>
+                            <div style="margin-top:4.5%">
+                                <a href="/movieEdit/<%= movie.id %>/<%= user %>" class="link" id="link1">Edit</a>
+                                <a href="/delete/<%= movie.id %>" class="link" id="link2">Delete</a>
+                            </div>
+                        </div>
+                        <% } %>
+                            <% } else { %>
+                                <div class="item">
+                                    <h1>NO movies were found</h1>
+                                    <h1>Fuck off!!!</h1>
+                                    <a href="/movie/all?horny=true" style="text-decoration: none;font-size:x-large;font-weight:bold;color:white;font-style:italic">Horny</a>
+                                </div>
+                                <% } %>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= name %>
+    </title>
+    <link rel="stylesheet" href="/css/moviePage.css">
+    <link rel="stylesheet" href="/css/transition.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="movie">
+            <div id="row1">
+                <div id="wallpaper">
+                    <img src="/<%= wallpaper %>" alt="<%= name %>">
+                </div>
+                <div id="info">
+                    <div id="rating">
+                        <h1>
+                            <%= name %>
+                                <span style="color:yellow">
+                               
+                                <%= rating %>/10✩
+                               
+
+                           </span>
+                        </h1>
+                    </div>
+                    <div id="genre">
+                        <h2>Duration: <span><strong><%= duration %></strong></span> </h2>
+                        <h2>Released: <span><strong><%= yearOfRelease %></strong></span> </h2>
+                        <div id="buttons">
+                            <!--add the JQuery code for the class change on click
+                            and also to make the page not to reload while sending a get request-->
+                            <a href="/likeVideo/<%= user %>/<%= movieId %>" style="text-decoration:none;color:white">
+                                <div id="like">
+                                    <i class="fa fa-heart " style="color:red;margin-top:10px;margin-bottom:10px;margin-left:25px;font-size:25px;"></i>
+                                    <span style="color:white;font-size:25px;">Like</span>
+                                </div>
+                            </a>
+                            <a href="/saveVideo/<%= user %>/<%= movieId %>" style="text-decoration:none;color:white">
+                                <div id="save">
+                                    <i class="fa fa-bookmark" style="color:yellow;margin-top:10px;margin-bottom:10px;margin-left:25px;font-size:25px;"></i>
+                                    <span style="color:white;font-size:25px;">Save</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="row2">
+                <h3>Plot</h3>
+                <p>
+                    <%= plot %>
+                </p>
+                <h3>Cast</h3>
+                <div id="cast">
+                    <% cast.forEach((crew) => {  %>
+                        <a href="/star/<%= crew['data']['_id']  %>" style="text-decoration:none;color:white">
+                            <div id="character">
+                                <img src=" /<%= crew['data']['images'][0] %>" alt="<%= crew['data']['name'] %>">
+                                <h4>
+                                    <%= crew['data']['name'] %>
+                                </h4>
+                                <h5>(
+                                    <%= crew['metaData']['name'] %>)</h5>
+                            </div>
+                        </a>
+                        <% }) %>
+                </div>
+                <h3>Director</h3>
+                <div id="director">
+                    <div id="directorImg">
+                        <img src="/<%=director.images[0]%>" alt="<%= director.name %>">
+                    </div>>
+                    <div id="directorInfo">
+                        <a href="/star/<%= director._id %>" style="text-decoration:none;color:white">
+                            <div id="directorName">
+                                <h3>
+                                    <%= director.name %>
+                                </h3>
+                            </div>
+                        </a>
+                        <div id="directorDescription">
+                            <p>
+                                <%= director.bio %>
+                            </p>
+                        </div>
+                    </div>
+                    <!--this is the review and rating section-->
+
+                </div>
+                <h3 style="margin-bottom:10px;margin-top:10px;">Give your feedback</h3>
+            </div>
+
+            <div id="row3">
+                <form action="/review/<%= movieId %>/<%= user %>" method="POST">
+                    <input type="hidden" value="<%= csrfToken %>" name="_csrf">
+                    <div class="star-widget">
+                        <input type="radio" name="rate" id="rate-5" style="display:none" value="10">
+                        <label for="rate-5" class="fas fa-star"></label>
+                        <input type="radio" name="rate" id="rate-4" style="display:none" value="8">
+                        <label for="rate-4" class="fas fa-star"></label>
+                        <input type="radio" name="rate" id="rate-3" style="display:none" value="6">
+                        <label for="rate-3" class="fas fa-star"></label>
+                        <input type="radio" name="rate" id="rate-2" style="display:none" value="4">
+                        <label for="rate-2" class="fas fa-star"></label>
+                        <input type="radio" name="rate" id="rate-1" style="display:none" value="2">
+                        <label for="rate-1" class="fas fa-star"></label>
+                    </div>
+                    <div id="text">
+                        <textarea name="content" id="content" cols="80" rows="12">Have watched this movie? Share your experience</textarea>
+                    </div>
+                    <button type="Submit">
+                          Submit
+                      </button>
+                </form>
+            </div>
+
+        </div>
+        <div id="reviews">
+            <h1 style="margin-bottom:1.75%">Reviews</h1>
+            <% if(reviews.length>0){ %>
+                <% reviews.forEach(review=>{  %>
+                    <div class="review">
+                        <h4>
+                            <%= review.user.user %>
+                                <strong>
+                            <%= review.rating/2 %>✩
+                        </strong>
+                        </h4>
+                        <p>
+                            <%= review.content %>
+                        </p>
+                    </div>
+                    <% }) %>
+                        <% } else { %>
+                            <h1>No reviews</h1>
+                            <% } %>
+
+
+        </div>
+    </div>
+</body>
+
+</html>

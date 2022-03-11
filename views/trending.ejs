@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= pageTitle %>
+    </title>
+    <link rel="stylesheet" href="/css/movies.css">
+</head>
+
+<body>
+    <div id="baap">
+        <div id="left">
+            <%- include('sideMenu.ejs',{userID:user}) %>
+        </div>
+        <div id="right">
+            <div id="heading">
+                <div id="header">
+                    <header>Movie <span id="modify"><strong >HUB</strong></span></header>
+                    <p>Share your movie collection with your friends</p>
+
+                </div>
+            </div>
+            <div id="content">
+                <% if (movies.length > 0 ) { %>
+                    <% for(let movie of movies) { %>
+                        <div class="item">
+                            <a href="/moviePage/<%= movie._id %>" style="text-decoration:none;color:white">
+                                <img src="/<%= movie.filePath %>" alt="<%= movie.title %>">
+                               </a>
+                            <h2 style="text-align:center;font-size:larger;font-weight:500;margin-bottom:0.75%">
+                                <strong style="color:rgb(216, 216, 8)">
+                                    <%= movie.avgRating %>✩
+                                </strong>
+                            </h2>
+                            <h1>
+                                <%= movie.title %>
+                            </h1>
+
+                            <h3>
+                                <%= movie.genre %>
+                            </h3>
+                            <p style="color:white;font-style:italic">
+                                <%= movie.description %>
+                            </p>
+                            <h2>
+                                Suggested:
+                                <%= movie.voted.user %>
+                            </h2>
+                        </div>
+                        <% } %>
+                            <% } else { %>
+                                <div class="item">
+                                    <h1>NO movies were found</h1>
+                                    <h1>Fuck off!!!</h1>
+                                </div>
+                                <% } %>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

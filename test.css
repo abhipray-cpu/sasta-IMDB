@@ -1,0 +1,154 @@
+body {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+form {
+    margin-left: 15%;
+}
+
+#text input {
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid white;
+    margin-left: 20px;
+    margin-right: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: x-large;
+    font-weight: bolder;
+    color: white;
+    font-style: italic;
+}
+
+#text input {
+    margin-top: 3%;
+    margin-left: 4%;
+}
+
+#text input:-webkit-autofill,
+#text input:-webkit-autofill:hover,
+#text input:-webkit-autofill:focus,
+#text input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+    font-size: xx-large;
+    font-weight: bolder;
+    color: white;
+}
+
+label,
+#lastLabel {
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
+    margin-right: 40px;
+}
+
+input[type="file"] {
+    color: white;
+    margin-left: 30px;
+}
+
+.para {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.para textarea {
+    margin-left: 170px;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 14px;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+}
+
+.para textarea::-webkit-scrollbar {
+    display: none;
+}
+
+#combo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+button {
+    margin-left: 30%;
+    margin-top: 10px;
+    margin-bottom: 2.5%;
+}
+
+button {
+    margin-left: 40%;
+    border: none;
+    width: 100px;
+    height: 50px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid transparent
+}
+
+select {
+    margin-top: 15px;
+}
+
+.select-dropdown,
+.select-dropdown * {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    box-sizing: border-box;
+    width: 200px;
+}
+
+.select-dropdown {
+    position: relative;
+    background-color: #E6E6E6;
+    border-radius: 4px;
+    width: 140px;
+}
+
+.select-dropdown select {
+    font-size: 1rem;
+    font-weight: normal;
+    max-width: 100%;
+    padding: 8px 24px 8px 10px;
+    border: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 230px;
+    height: 150px;
+}
+
+.select-dropdown select:active,
+.select-dropdown select:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.select-dropdown:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    width: 0;
+    height: 0;
+    margin-top: -2px;
+    border-top: 5px solid #aaa;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}

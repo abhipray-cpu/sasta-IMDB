@@ -1,0 +1,158 @@
+<link rel="stylesheet" href="/css/sideMenu.css">
+<nav class="main-menu">
+    <div class="navItem">
+        <a href="/user/<%= userID %>" style="text-decoration:none;color:white">
+            <article>
+                <i class="fa fa-home fa-2x"></i>
+                <span class="nav-text">
+                Home
+            </span>
+            </article>
+        </a>
+    </div>
+    <div class="navItem" id="submenu1">
+        <article>
+            <i class="fa fa-film fa-2x"></i>
+            <span class="nav-text">
+                    Genres
+                </span>
+        </article>
+        <div id="categories">
+            <div class="menuItem1">
+                <a href="/movie/Comedy?page=1">Comedy</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Horror?page=1">Horror</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Action?page=1">Action</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Thriller?page=1">Thriller</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/SCIFI?page=1">SCIFI</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Mythology?page=1">Mythology</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/RomCom?page=1">RomCom</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Romance?page=1">Romance</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Zombie?page=1">Zombie</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Life situations?page=1">Life situations</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Horror Comedy?page=1">Horror Comedy</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Monster?page=1">Monster</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Inspirational?page=1">Inspirational</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Documentaries?page=1">Documentaries</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Sports?page=1">Sports</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Crime?page=1">Crime</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Drama?page=1">Drama</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Superhero?page=1">Superhero</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Martial Arts?page=1">Martial Arts</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Action comedy?page=1">Action comedy</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Dark comedy?page=1">Dark comedy</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Super natural?page=1">Super natural</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/fantasy?page=1">fantasy</a>
+            </div>
+            <div class="menuItem1">
+                <a href="/movie/Musicals?page=1">Musicals</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="navItem" id="submenu2">
+        <article>
+            <i class="fa fa-search fa-2x"></i>
+            <span class="nav-text">
+            Search
+        </span>
+        </article>
+        <div id="form">
+            <form action="" method="POST">
+                <!--include the csrf token as well-->
+                <input type="text" name="search" id="search" placeholder="Search Movie or star">
+                <button type="submit">
+        search
+    </button>
+            </form>
+        </div>
+    </div>
+    <div class="navItem">
+        <a href="/likedVideo/<%= userID %>" style="text-decoration: none;color:white">
+            <article>
+                <i class="fa fa-heart fa-2x"></i>
+                <span class="nav-text">
+                    Liked Movies
+                </span>
+            </article>
+        </a>
+    </div>
+    <div class="navItem">
+        <a href="/savedVideo/<%= userID %>" style="text-decoration: none;color:white">
+            <article>
+                <i class="fa fa-bookmark fa-2x"></i>
+                <span class="nav-text">
+                        Watch Later
+                    </span>
+            </article>
+        </a>
+    </div>
+    <div class="navItem submenu3" id="submenu3">
+        <article>
+            <i class="fa fa-key fa-2x"></i>
+            <span class="nav-text">
+            Change Password
+        </span>
+        </article>
+        <div id="passwordChange">
+            <a href="/change_password">
+    Change Password
+</a>
+        </div>
+    </div>
+
+
+    <div class="navItem" style="margin-bottom:10px;">
+        <a href="/logout">
+            <i class="fa fa-power-off fa-3x"></i>
+            <span class="nav-text">
+                Logout
+            </span>
+        </a>
+
+    </div>
+
+</nav>

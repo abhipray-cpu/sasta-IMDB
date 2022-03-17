@@ -3,7 +3,8 @@ const multer = require('multer')
 const path = require('path')
 const bodyParser = require('body-parser')
 const app = express();
-//this is a storage engine which we can use with multer
+require('dotenv').config()
+    //this is a storage engine which we can use with multer
 const fileStorage = multer.diskStorage({
         destination: (req, file, cb) => {
             cb(null, 'imageData'); //null is bascally the error and images is the name of teh folder where we want to store the files
@@ -25,7 +26,7 @@ const fileFilter = (req, file, cb) => {
 }
 const csrf = require('csurf')
 const mongoose = require('mongoose')
-const MONGO_URI = 'mongodb+srv://puttanpal:puttanpal@cluster0.ntabq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const MONGO_URI = process.env.MONGO_URI
 const session = require('express-session')
 const mongoSession = require('connect-mongodb-session')(session)
 const flash = require('connect-flash')
@@ -72,7 +73,7 @@ const Store = new mongoSession({
 
 const csrfProtection = csrf()
 app.use(session({
-    secret: "Jackwa aur jillwa gae upar hillwa panya bhran ke waste jackwa girgawa khopdi phatt gawa", // always make sure this key is a good and strong string
+    secret: process.env.SESSION_SECRET, // always make sure this key is a good and strong string
     resave: false,
     saveUninitialized: false,
     store: Store,

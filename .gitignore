@@ -10,3 +10,4 @@ node_modules
 *.jpeg
 *.mp3
 *.mp4
+*.env
